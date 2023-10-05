@@ -6,7 +6,13 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "delete:docs": "rm -r -f docs",
+    "create:docs": "mkdir docs",
+    "copy:dist": "cp -R -u dist/%npm_package_name%/* ./docs -f",
+    "build:href": "ng build --base-href ./",
+    "build:github": "npm run delete:docs && npm run build:href && npm run create:docs && npm run copy:dist",
+    "build:github:push": "npm run build:github && git add . && git commit -m \"Preparing docs for Github pages deployment.\" && git push"
   },
   "private": true,
   "dependencies": {
