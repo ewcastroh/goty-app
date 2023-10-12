@@ -1,1 +1,24 @@
-<p>goty works!</p>
+<h2>Vote for Game Of The Year</h2>
+<hr>
+
+<div class="row" *ngIf="games$ | async as games">
+  <div class="col">
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col" *ngFor="let game of games">
+        <div class="card">
+          <img [src]="game.url" class="card-img-top" [alt]="game.name">
+          <div class="card-body">
+            <h5 class="card-title">{{game.name}}</h5>
+            <p class="card-text">Click to vote for this game.</p>
+            <p class="card-text"><strong>Votes:</strong> {{game.votes}}</p>
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary" type="button">Vote</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
