@@ -13,7 +13,7 @@
             <p class="card-text">Click to vote for this game.</p>
             <p class="card-text"><strong>Votes:</strong> {{game.votes}}</p>
             <div class="d-grid gap-2">
-              <button class="btn btn-primary" type="button">Vote</button>
+              <button class="btn btn-primary" (click)="voteGame(game)">Vote</button>
             </div>
           </div>
         </div>
