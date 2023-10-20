@@ -2,7 +2,7 @@
 <hr>
 
 <div class="row">
-  <div class="col">
-    <app-horizontal-bar-chart></app-horizontal-bar-chart>
+  <div class="col" *ngIf="games$ |async as games">
+    <app-horizontal-bar-chart [results]="games"></app-horizontal-bar-chart>
   </div>
 </div>
