@@ -1,4 +1,6 @@
 export const environment = {
   production: false,
-  url: 'http://localhost:5000/goty-chart/us-central1'
+  url: 'http://localhost:5000/goty-chart/us-central1',
+  firebase: {
+  }
 };

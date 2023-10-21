@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Observable, map } from 'rxjs';
-import { Candidate, Game } from 'src/app/interfaces';
+import { Candidate } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-home',
@@ -16,11 +16,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     // get a reference to the goty collection
-    const gotyCollection = collection(this.firestore, 'goty');
+    const gotyCollectionRef = collection(this.firestore, 'goty');
 
     // get documents (data) from the collection using collectionData
-    this.games$ = collectionData(gotyCollection).pipe(
-      map((response) => response.map(({name, votes}) => ({name, value: votes})))
+    this.games$ = collectionData(gotyCollectionRef).pipe(
+      map((response: any) => response.map(({name, votes}: any) => ({name, value: votes})))
     ) as Observable<Candidate[]>;
   }
 }
